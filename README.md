@@ -6,7 +6,7 @@ Generate the SQL to rollback changes made to the database based on the specific 
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/rollback-to-date-sql@v4.19.0
+- uses: liquibase-github-actions/rollback-to-date-sql@v4.19.1
   with:
     # The root changelog
     # string
@@ -100,7 +100,7 @@ The liquibase rollback to date sql action accepts all valid liquibase global opt
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/rollback-to-date-sql@v4.19.0
+  - uses: liquibase-github-actions/rollback-to-date-sql@v4.19.1
     with:
       changelogFile: ""
       date: ""
