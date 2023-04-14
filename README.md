@@ -6,9 +6,9 @@ Generate the SQL to rollback changes made to the database based on the specific 
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/rollback-to-date-sql@v4.21.0
+- uses: liquibase-github-actions/rollback-to-date-sql@v4.21.1
   with:
-    # The root changelog
+    # The root changelog file
     # string
     # Required
     changelogFile: ""
@@ -23,6 +23,11 @@ steps:
     # Required
     url: ""
 
+    # 
+    # string
+    # Optional
+    changeExecListener: ""
+
     # Fully-qualified class which specifies a ChangeExecListener
     # string
     # Optional
@@ -33,10 +38,20 @@ steps:
     # Optional
     changeExecListenerPropertiesFile: ""
 
-    # Changeset contexts to match
+    # 
+    # string
+    # Optional
+    changelogParameters: ""
+
+    # Context string to use for filtering
     # string
     # Optional
     contexts: ""
+
+    # 
+    # string
+    # Optional
+    database: ""
 
     # The default catalog name to use for the database connection
     # string
@@ -58,7 +73,7 @@ steps:
     # Optional
     driverPropertiesFile: ""
 
-    # Changeset labels to match
+    # Label expression to use for filtering
     # string
     # Optional
     labelFilter: ""
@@ -83,6 +98,11 @@ steps:
     # Optional
     rollbackScript: ""
 
+    # 
+    # bool
+    # Optional
+    skipDatabaseStep: ""
+
     # Username to use to connect to the database
     # string
     # Optional
@@ -100,7 +120,7 @@ The liquibase rollback to date sql action accepts all valid liquibase global opt
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/rollback-to-date-sql@v4.21.0
+  - uses: liquibase-github-actions/rollback-to-date-sql@v4.21.1
     with:
       changelogFile: ""
       date: ""
